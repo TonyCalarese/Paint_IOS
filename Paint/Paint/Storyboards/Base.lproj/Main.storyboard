@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4FH-ZP-7gY">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Canvas View Controller-->
+        <scene sceneID="PIP-T4-wN8">
+            <objects>
+                <viewController id="4FH-ZP-7gY" customClass="CanvasViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WiR-mB-AGC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i9c-4V-ce3">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="414" id="XSZ-0T-jAt"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem title="Item" image="gear" catalog="system" landscapeImage="gear" id="t8g-KG-TqE">
+                                        <connections>
+                                            <segue destination="pqc-UA-2Y7" kind="show" id="p9s-dj-06O"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Gds-Wr-O1o"/>
+                                    <barButtonItem style="plain" systemItem="refresh" id="IdD-GU-eBu">
+                                        <connections>
+                                            <action selector="ClearCanvas:" destination="4FH-ZP-7gY" id="Qze-pM-oai"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="i9c-4V-ce3" firstAttribute="leading" secondItem="oAw-Wj-Gyb" secondAttribute="leading" id="0Ng-3D-nHa"/>
+                            <constraint firstItem="i9c-4V-ce3" firstAttribute="top" secondItem="oAw-Wj-Gyb" secondAttribute="top" id="Njz-5a-Q8v"/>
+                            <constraint firstItem="i9c-4V-ce3" firstAttribute="centerX" secondItem="WiR-mB-AGC" secondAttribute="centerX" id="fBg-Fa-rvV"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="oAw-Wj-Gyb"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tvC-p5-3gi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="0.0" y="-5.3571428571428568"/>
+        </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="qxF-ZZ-NMV">
+            <objects>
+                <viewController id="pqc-UA-2Y7" customClass="SettingsViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="00o-gw-0gj">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="sIm-R2-e1Y"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="e1l-8f-l8A"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rHm-rE-8sE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="829" y="-5"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="gear" catalog="system" width="128" height="119"/>
+    </resources>
+</document>
