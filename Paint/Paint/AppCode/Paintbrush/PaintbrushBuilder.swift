@@ -13,25 +13,41 @@ class PaintbrushBuilder {
     var brushColor: UIColor?,
     brushWidth: CGFloat?,
     brushOpacity: CGFloat?,
-    position: CGPoint?
+    position: CGPoint = CGPoint.zero //default to zero
     
     
     public func setBrushColor(_ color: UIColor) {
-        UserDefaults.standard.set(color, forKey: "color") //set default
         self.brushColor = color //Set color
     }
     public func setBrushWidth(_ width: CGFloat) {
-        UserDefaults.standard.set(width, forKey: "width") //set default
         self.brushWidth = width //Set width
     }
     public func setBrushOpacity(_ opacity: CGFloat) {
-        UserDefaults.standard.set(opacity, forKey: "opacity") //set default
         self.brushOpacity = opacity //Set opacity
     }
-    public func setPosition(_ position: CGPoint) {
-        UserDefaults.standard.set(position, forKey: "pos") //set default
+    public func setLastPositionTouched(_ position: CGPoint) {
+        self.position = position
     }
     
+    public func getLastPosition() -> CGPoint {
+        return self.position //Work Around until User defaults are configured
+    }
+    
+    func buildFromDefaults() {
+        print("Building Brush From Defaults")
+        if let color = UserDefaults.standard.string(forKey: "color") {
+            print(color)
+            self.setBrushColor(UIColor(named: color)!)
+        }
+        if let width = UserDefaults.standard.string(forKey: "width") {
+            print(width)
+            self.setBrushWidth(CGFloat(truncating: NumberFormatter().number(from: width)!))
+        }
+        if let opacity = UserDefaults.standard.string(forKey: "opacity") {
+            print(opacity)
+            self.setBrushOpacity(CGFloat(truncating: NumberFormatter().number(from: opacity)!))
+        }
+    }
     
     public func build() -> Paintbrush {
         //guarding the Paintbrush to ensure that everything is filled
@@ -44,9 +60,7 @@ class PaintbrushBuilder {
         if brushOpacity == nil {
             self.brushOpacity = 1.0 //default to 100%
         }
-        if position == nil {
-            self.position = CGPoint.zero //default to zero
-        }
+      
         
         //Create Paintbrush
         return Paintbrush(brushColor: self.brushColor,

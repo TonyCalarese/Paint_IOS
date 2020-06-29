@@ -10,12 +10,12 @@
         <!--Canvas View Controller-->
         <scene sceneID="PIP-T4-wN8">
             <objects>
-                <viewController id="4FH-ZP-7gY" customClass="CanvasViewController" sceneMemberID="viewController">
+                <viewController id="4FH-ZP-7gY" customClass="CanvasViewController" customModule="Paint" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WiR-mB-AGC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i9c-4V-ce3">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="i9c-4V-ce3">
                                 <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="414" id="XSZ-0T-jAt"/>
@@ -34,15 +34,26 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kiW-DD-PAy">
+                                <rect key="frame" x="0.0" y="96" width="414" height="766"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="414" id="yWE-3b-Mlx"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="i9c-4V-ce3" firstAttribute="leading" secondItem="oAw-Wj-Gyb" secondAttribute="leading" id="0Ng-3D-nHa"/>
+                            <constraint firstItem="kiW-DD-PAy" firstAttribute="height" secondItem="WiR-mB-AGC" secondAttribute="height" multiplier="0.142857" id="1Vc-bh-gJX"/>
                             <constraint firstItem="i9c-4V-ce3" firstAttribute="top" secondItem="oAw-Wj-Gyb" secondAttribute="top" id="Njz-5a-Q8v"/>
+                            <constraint firstItem="kiW-DD-PAy" firstAttribute="leading" secondItem="oAw-Wj-Gyb" secondAttribute="leading" id="bej-RK-Zvb"/>
                             <constraint firstItem="i9c-4V-ce3" firstAttribute="centerX" secondItem="WiR-mB-AGC" secondAttribute="centerX" id="fBg-Fa-rvV"/>
+                            <constraint firstItem="kiW-DD-PAy" firstAttribute="top" secondItem="i9c-4V-ce3" secondAttribute="bottom" constant="8" id="mjs-c2-qAa"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="oAw-Wj-Gyb"/>
                     </view>
+                    <connections>
+                        <outlet property="canvas" destination="kiW-DD-PAy" id="A7U-ES-MLr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tvC-p5-3gi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -51,18 +62,69 @@
         <!--Settings View Controller-->
         <scene sceneID="qxF-ZZ-NMV">
             <objects>
-                <viewController id="pqc-UA-2Y7" customClass="SettingsViewController" sceneMemberID="viewController">
+                <viewController id="pqc-UA-2Y7" customClass="SettingsViewController" customModule="Paint" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="00o-gw-0gj">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="25" minValue="1" maxValue="50" translatesAutoresizingMaskIntoConstraints="NO" id="w8X-WY-aLy">
+                                <rect key="frame" x="41" y="135" width="317" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Width" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cCQ-D4-zXd">
+                                <rect key="frame" x="43" y="64" width="46" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YoS-n7-HrG">
+                                <rect key="frame" x="314" y="64" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Opacity" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CGb-D0-vI7">
+                                <rect key="frame" x="43" y="270" width="60" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lyB-vX-dLV">
+                                <rect key="frame" x="47" y="512" width="38" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Black"/>
+                            </button>
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="100" minimumValue="1" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="6gU-Kc-f3F">
+                                <rect key="frame" x="262" y="264" width="94" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </stepper>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J0A-SF-G2X">
+                                <rect key="frame" x="186" y="270" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="sIm-R2-e1Y"/>
                     </view>
                     <navigationItem key="navigationItem" id="e1l-8f-l8A"/>
+                    <connections>
+                        <outlet property="blackColorButton" destination="lyB-vX-dLV" id="d8Z-oO-t3B"/>
+                        <outlet property="opacityLabel" destination="CGb-D0-vI7" id="qkh-Cb-gCT"/>
+                        <outlet property="opacityValue" destination="J0A-SF-G2X" id="stN-V2-swJ"/>
+                        <outlet property="opacityValueStepper" destination="6gU-Kc-f3F" id="dKH-VX-AfQ"/>
+                        <outlet property="widthLabel" destination="cCQ-D4-zXd" id="W0L-Al-tp5"/>
+                        <outlet property="widthValue" destination="YoS-n7-HrG" id="ykl-5x-JC5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rHm-rE-8sE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="829" y="-5"/>
+            <point key="canvasLocation" x="828.98550724637687" y="-5.3571428571428568"/>
         </scene>
     </scenes>
     <resources>

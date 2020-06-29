@@ -5,7 +5,7 @@
 //  Created by Tony Calarese on 6/25/20.
 //  Copyright © 2020 Tony Calarese. All rights reserved.
 //  Main struct for the paintbursh tool used on the canvas
-
+//Getters will always have a value in them due to how this class is builded
 import Foundation
 import UIKit
 
@@ -14,32 +14,18 @@ struct Paintbrush {
      brushWidth: CGFloat?,
      brushOpacity: CGFloat?
     
-    func draw(start: CGPoint, finish: CGPoint) {
-      // 1
-      UIGraphicsBeginImageContext(view.frame.size)
-      guard let context = UIGraphicsGetCurrentContext() else {
-        return
-      }
-      tempImageView.image?.draw(in: view.bounds)
-        
-      // 2
-      context.move(to: fromPoint)
-      context.addLine(to: toPoint)
-      
-      // 3
-      context.setLineCap(.round)
-      context.setBlendMode(.normal)
-      context.setLineWidth(brushWidth)
-      context.setStrokeColor(color.cgColor)
-      
-      // 4
-      context.strokePath()
-      
-      // 5
-      tempImageView.image = UIGraphicsGetImageFromCurrentImageContext()
-      tempImageView.alpha = opacity
-      UIGraphicsEndImageContext()
+    public func getColor() -> UIColor {
+        return brushColor!
     }
-
-   
+    public func getOpacity() -> CGFloat {
+        return brushOpacity!
+    }
+    
+    public func getWidth() -> CGFloat {
+        return brushWidth!
+    }
+    
+    public func getAllSpecs() -> (UIColor, CGFloat, CGFloat){
+        return (brushColor!, brushWidth!, brushOpacity!)
+    }
 }
