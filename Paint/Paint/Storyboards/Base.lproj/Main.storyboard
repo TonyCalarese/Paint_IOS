@@ -10,7 +10,7 @@
         <!--Canvas View Controller-->
         <scene sceneID="PIP-T4-wN8">
             <objects>
-                <viewController id="4FH-ZP-7gY" customClass="CanvasViewController" customModule="Paint" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="canvas" id="4FH-ZP-7gY" customClass="CanvasViewController" customModule="Paint" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WiR-mB-AGC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -21,7 +21,7 @@
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="414" id="XSZ-0T-jAt"/>
                                 </constraints>
                                 <items>
-                                    <barButtonItem title="Item" image="gear" catalog="system" landscapeImage="gear" id="t8g-KG-TqE">
+                                    <barButtonItem title="Item" image="gear" catalog="system" landscapeImage="gear" id="t8g-KG-TqE" userLabel="Settings">
                                         <connections>
                                             <segue destination="pqc-UA-2Y7" kind="show" id="p9s-dj-06O"/>
                                         </connections>
@@ -67,9 +67,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="25" minValue="1" maxValue="50" translatesAutoresizingMaskIntoConstraints="NO" id="w8X-WY-aLy">
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="w8X-WY-aLy">
                                 <rect key="frame" x="41" y="135" width="317" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="adjWidth:" destination="pqc-UA-2Y7" eventType="valueChanged" id="2rQ-Wn-8uH"/>
+                                </connections>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Width" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cCQ-D4-zXd">
                                 <rect key="frame" x="43" y="64" width="46" height="21"/>
@@ -86,7 +89,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Opacity" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CGb-D0-vI7">
-                                <rect key="frame" x="43" y="270" width="60" height="21"/>
+                                <rect key="frame" x="43" y="222" width="60" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -97,17 +100,20 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Black"/>
                             </button>
-                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="100" minimumValue="1" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="6gU-Kc-f3F">
-                                <rect key="frame" x="262" y="264" width="94" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </stepper>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J0A-SF-G2X">
-                                <rect key="frame" x="186" y="270" width="42" height="21"/>
+                                <rect key="frame" x="314" y="222" width="42" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.10000000000000001" minValue="0.10000000000000001" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="ZUN-et-hXE">
+                                <rect key="frame" x="41" y="279" width="317" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="adjOpactity:" destination="pqc-UA-2Y7" eventType="valueChanged" id="ulh-s6-oZQ"/>
+                                </connections>
+                            </slider>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="sIm-R2-e1Y"/>
@@ -116,9 +122,10 @@
                     <connections>
                         <outlet property="blackColorButton" destination="lyB-vX-dLV" id="d8Z-oO-t3B"/>
                         <outlet property="opacityLabel" destination="CGb-D0-vI7" id="qkh-Cb-gCT"/>
+                        <outlet property="opacitySlider" destination="ZUN-et-hXE" id="7Ip-GJ-q4X"/>
                         <outlet property="opacityValue" destination="J0A-SF-G2X" id="stN-V2-swJ"/>
-                        <outlet property="opacityValueStepper" destination="6gU-Kc-f3F" id="dKH-VX-AfQ"/>
                         <outlet property="widthLabel" destination="cCQ-D4-zXd" id="W0L-Al-tp5"/>
+                        <outlet property="widthSlider" destination="w8X-WY-aLy" id="pJM-FX-zjV"/>
                         <outlet property="widthValue" destination="YoS-n7-HrG" id="ykl-5x-JC5"/>
                     </connections>
                 </viewController>

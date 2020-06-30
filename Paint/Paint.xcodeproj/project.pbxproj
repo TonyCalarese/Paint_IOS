@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C00C803C24AB7C0900CFF4AA /* UserDefaultExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00C803B24AB7C0900CFF4AA /* UserDefaultExtensions.swift */; };
+		C00C803E24AB7DCD00CFF4AA /* Sources_of_Reference.rtf in Resources */ = {isa = PBXBuildFile; fileRef = C00C803D24AB7DCD00CFF4AA /* Sources_of_Reference.rtf */; };
 		C01CFA5E24A53E3600C4E3AA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01CFA5D24A53E3600C4E3AA /* AppDelegate.swift */; };
 		C01CFA6024A53E3600C4E3AA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01CFA5F24A53E3600C4E3AA /* SceneDelegate.swift */; };
 		C01CFA6224A53E3600C4E3AA /* CanvasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01CFA6124A53E3600C4E3AA /* CanvasViewController.swift */; };
@@ -20,6 +22,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C00C803B24AB7C0900CFF4AA /* UserDefaultExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultExtensions.swift; sourceTree = "<group>"; };
+		C00C803D24AB7DCD00CFF4AA /* Sources_of_Reference.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = Sources_of_Reference.rtf; sourceTree = "<group>"; };
 		C01CFA5A24A53E3600C4E3AA /* Paint.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Paint.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C01CFA5D24A53E3600C4E3AA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C01CFA5F24A53E3600C4E3AA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -70,6 +74,7 @@
 				C01CFA6B24A53E3800C4E3AA /* Assets.xcassets */,
 				C01CFA7024A53E3800C4E3AA /* Info.plist */,
 				C01CFA6824A53E3700C4E3AA /* Paint.xcdatamodeld */,
+				C00C803D24AB7DCD00CFF4AA /* Sources_of_Reference.rtf */,
 			);
 			path = Paint;
 			sourceTree = "<group>";
@@ -106,6 +111,7 @@
 			children = (
 				C01CFA7B24A5807800C4E3AA /* PaintbrushBuilder.swift */,
 				C01CFA7D24A5865B00C4E3AA /* Paintbrush.swift */,
+				C00C803B24AB7C0900CFF4AA /* UserDefaultExtensions.swift */,
 			);
 			path = Paintbrush;
 			sourceTree = "<group>";
@@ -177,6 +183,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C00C803E24AB7DCD00CFF4AA /* Sources_of_Reference.rtf in Resources */,
 				C01CFA6F24A53E3800C4E3AA /* LaunchScreen.storyboard in Resources */,
 				C01CFA6C24A53E3800C4E3AA /* Assets.xcassets in Resources */,
 				C01CFA6724A53E3700C4E3AA /* Main.storyboard in Resources */,
@@ -192,6 +199,7 @@
 			files = (
 				C01CFA6A24A53E3700C4E3AA /* Paint.xcdatamodeld in Sources */,
 				C01CFA7E24A5865B00C4E3AA /* Paintbrush.swift in Sources */,
+				C00C803C24AB7C0900CFF4AA /* UserDefaultExtensions.swift in Sources */,
 				C01CFA6424A53E3700C4E3AA /* SettingsViewController.swift in Sources */,
 				C01CFA6224A53E3600C4E3AA /* CanvasViewController.swift in Sources */,
 				C01CFA5E24A53E3600C4E3AA /* AppDelegate.swift in Sources */,

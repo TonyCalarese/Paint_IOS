@@ -4,6 +4,8 @@
 //
 //  Created by Tony Calarese on 6/25/20.
 //  Copyright © 2020 Tony Calarese. All rights reserved.
+//  Sources are Listed in the Sources_of_Reference.rtf file and are marked by number, please give credit where it is due
+
 //  Builder class for declaring the paintbrush when drawing
 
 import Foundation
@@ -35,22 +37,26 @@ class PaintbrushBuilder {
     
     func buildFromDefaults() {
         print("Building Brush From Defaults")
-        if let color = UserDefaults.standard.string(forKey: "color") {
+        if let color = UserDefaults.standard.getColor(forKey: "color") {
+            print("Got Color")
             print(color)
-            self.setBrushColor(UIColor(named: color)!)
+            self.setBrushColor(color)
         }
         if let width = UserDefaults.standard.string(forKey: "width") {
+            print("Got Width")
             print(width)
             self.setBrushWidth(CGFloat(truncating: NumberFormatter().number(from: width)!))
         }
         if let opacity = UserDefaults.standard.string(forKey: "opacity") {
+            print("Got Opacity")
             print(opacity)
             self.setBrushOpacity(CGFloat(truncating: NumberFormatter().number(from: opacity)!))
         }
     }
     
     public func build() -> Paintbrush {
-        //guarding the Paintbrush to ensure that everything is filled
+        buildFromDefaults() //Build off of the defaults
+        //prevent nils from slipping by
         if brushColor == nil {
             self.brushColor = UIColor.black //default to black
         }

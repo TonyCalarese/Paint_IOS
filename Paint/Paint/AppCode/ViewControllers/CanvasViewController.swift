@@ -4,14 +4,14 @@
 //
 //  Created by Tony Calarese on 6/25/20.
 //  Copyright © 2020 Tony Calarese. All rights reserved.
-//  Code Referenced from tutorial: https://www.raywenderlich.com/5895-uikit-drawing-tutorial-how-to-make-a-simple-drawing-app
+// Sources are Listed in the Sources_of_Reference.rtf file and are marked by number, please give credit where it is due
 
 import UIKit
 
 class CanvasViewController: UIViewController {
     var continuousSwipe = false //Bool for brushing lines
-    let brush = PaintbrushBuilder()
-    var paintbrush: Paintbrush?
+    //let brush = PaintbrushBuilder()
+    // var paintbrush: Paintbrush?
 
     @IBOutlet public var canvas: UIImageView!
     @IBAction func ClearCanvas(_ sender: Any) {
@@ -20,16 +20,10 @@ class CanvasViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        buildBrush()
+        paintbrush = brush.build()
     }
 
-    
-    //Function to Build to Brush
-    public func buildBrush() {
-        print("Building Brush")
-        brush.buildFromDefaults()
-        paintbrush = brush.build() //Build the default brush
-    }
+    //Code refernced from Source 1
     //Code for touching the Image view
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard let touch = touches.first else {
@@ -51,6 +45,7 @@ class CanvasViewController: UIViewController {
           
           brush.setLastPositionTouched(finish) //set the position they left off of as the last point Touched
          }
+    
     func draw(start: CGPoint, finish: CGPoint) {
      let (color, width, opacity) = (paintbrush?.getAllSpecs())! //get all the brush values
      
@@ -62,23 +57,19 @@ class CanvasViewController: UIViewController {
         
       context.move(to: start)
       context.addLine(to: finish)
-      
-      // 3
       context.setLineCap(.round)
       context.setBlendMode(.normal)
       context.setLineWidth(width)
       context.setStrokeColor(color.cgColor)
-      
-      // 4
+
       context.strokePath()
-      
-      // 5
+
       canvas.image = UIGraphicsGetImageFromCurrentImageContext()
-     //canvas.alpha = paintbrush?.getOpacity() as! CGFloat
-     canvas.alpha = opacity
+     
+      canvas.alpha = opacity
      UIGraphicsEndImageContext()
     }
-
+    //EOF Source 1 reference
 
 
 }
